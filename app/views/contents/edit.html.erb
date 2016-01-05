@@ -1,0 +1,12 @@
+<div>
+  <%= form_tag('contents', method: :post ) do %>
+    <h3>投稿する</h3>
+    <input placeholder="タイトル" type="text" name="title">
+    <%= form_for(@image, :url => update_image_member_path(:id => params[:id])) do |f| %>
+        <%= f.label :image, '写真をアップロード' %>
+        <%= f.file_field :image %>
+        <%= f.submit '送信' %>
+    <% end %>
+    <textarea cols="30" name="text" placeholder="text" rows="10"></textarea>
+  <% end %>
+</div>

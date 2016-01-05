@@ -4,9 +4,12 @@ class ContentsController < ApplicationController
   end
 
   def create
+    Content.create(content_params)
+    10.times { @content.content_images.build }
   end
 
   def edit
+    @image = ContentImage.new
   end
 
   def show
@@ -17,4 +20,10 @@ class ContentsController < ApplicationController
 
   def destoroy
   end
+
+  private
+  def content_params
+    params.permit(:title, :image, :description)
+  end
+
 end
