@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   attr_accessor :group_key
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  belongs_to :group
 end
