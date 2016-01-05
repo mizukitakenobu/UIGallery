@@ -1,2 +1,11 @@
-<p>hogehoge</p>
+<div>
+  <% @contents.each do |content| %>
+    <li>
+      <a href="/contents/<%= contents.id %>"><div style="backgraound-image:ulr(<%= content,image_url %>)"></div></a>
+      <div>
+        <h3><%= content.title %></h3>
+      </div>
+    </li>
+  <% end %>
+</div>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
