@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
- root 'home#index'
- get '/' => 'home#index'
+ root 'top#index'
+ get '/' => 'top#index'
  resources :projects
  resources :contents, :except => [:index]
 
