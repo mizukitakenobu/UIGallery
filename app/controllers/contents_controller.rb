@@ -5,11 +5,12 @@ class ContentsController < ApplicationController
 
   def create
     Content.create(content_params)
+    @image = ContentImage.new
     10.times { @content.content_images.build }
   end
 
   def edit
-    @image = ContentImage.new
+    
   end
 
   def show
