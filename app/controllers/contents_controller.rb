@@ -10,15 +10,26 @@ class ContentsController < ApplicationController
   end
 
   def edit
+    @content = Content.find(params[:id])
   end
 
   def show
   end
 
   def update
+    content = Content.find(params[:id])
+    if content.user_id == current_user.id
+      content.update(content_params)
+    end
+    redirect_to controller: 'top', action: 'index'
   end
 
   def destoroy
+    content = Content.find(params[:id])
+    if content.user_id == current_user.id
+      tweet.destoroy
+    end
+    redirect_to controller: 'top', action: 'index'
   end
 
   private
