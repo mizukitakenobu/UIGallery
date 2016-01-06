@@ -1,12 +1,11 @@
 class ContentsController < ApplicationController
 
   def new
+    @image = Content.new(content_params)
+    3.times { @content.content_images.build }
   end
 
   def create
-    Content.create(content_params)
-    @image = ContentImage.new
-    10.times { @content.content_images.build }
   end
 
   def edit
@@ -24,7 +23,7 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.permit(:title, :image, :description)
+    params.require(:content).permit(images_attributes: [:image])
   end
 
 end
