@@ -1,1 +1,8 @@
-<p>hoge</p>
+<h2>投稿一覧</h2>
+<% @contents.each do |content| %>
+  <li>
+    <a href="/contents/<%= content.id %>"><div style="background-image:url(<%= content.image.url %>)">a</div></a>
+    <h3 title="<%= content.title %>"><%= content.title %></h3>
+    <p><%= content.description %></p>
+  </li>
+<% end %>
