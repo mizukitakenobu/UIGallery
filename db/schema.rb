@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160106054209) do
 
-  create_table "content_images", force: :cascade do |t|
-    t.string   "image",      limit: 255
-    t.integer  "content_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "contents", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.text     "description", limit: 65535

@@ -1,8 +1,10 @@
-<%= form_tag("/tweets/#{@tweet.id}", method: :patch ) do %>
+<%= form_tag("/contents/#{@content.id}", method: :patch ) do %>
   <h3>編集する</h3>
+
   <%= form_for(@content.image) do |f| %>
-    <input placeholder="Image Url" type="text" name="image" value="<%= @tweet.image %>" autofocus="true"></input>
-  <%= end %>
-  <textarea cols="30" name="text" placeholder="text" rows="10"><%= @tweet.text %></textarea>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  <% end %>
+  <textarea cols="30" name="text" placeholder="text" rows="10"><%= @content.text %></textarea>
   <input type="submit" value="SENT">
 <% end %>

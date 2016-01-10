@@ -1,12 +1,11 @@
 class ContentsController < ApplicationController
 
   def new
-    @content = Content.new(content_params)
+    @content = Content.new
   end
 
   def create
     Content.create(content_params)
-    redirect_to controller: 'top', action: 'index'
   end
 
   def edit
@@ -35,7 +34,7 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.permit(:title, :description, images_attributes: [:image])
+    params.require(:content).permit(:title, :description, :image, :image_cache)
   end
 
 end
