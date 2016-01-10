@@ -1,5 +1,20 @@
+<h1>UI Gallery</h1>
+
+<div>
 <% if user_signed_in? %>
   <div>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <li>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </li>
+  </div>
+  <% else %>
+  <div>
+  <li>
+    <%= link_to "会員登録", new_user_registration_path, method: :get %>
+  </li>
+  <li>
+    <%= link_to "ログイン", new_user_session_path, method: :get %>
+  </li>
   </div>
 <% end %>
+</div>
