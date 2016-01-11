@@ -5,13 +5,12 @@
   <br />
   <%= f.label :description, "説明" %><br />
   <%= f.text_area :description %><br />
-  <%= f.label :images, "画像" %><br />
-  <%= f.fields_for :images do |image| %>
-    <%= image.label :creative, "画像" %><br>
-    <%= image.file_field :creative %><br />
-    <%= image.hidden_field :creative_cache %>
-    <%= image.label :caption, "画像の説明" %><br />
-    <%= image.text_area :caption %><br />
+  <%= f.label :thumbnails, "画像" %><br />
+  <%= f.fields_for :thumbnails do |thumbnail| %>
+    <%= thumbnail.label :creative, "投稿する" %><br>
+    <%= thumbnail.file_field :creative %><br />
+    <%= thumbnail.label :caption, "画像の説明" %><br />
+    <%= thumbnail.text_area :caption %><br />
   <% end %>
   <br />
   <%= f.submit "投稿する" %>

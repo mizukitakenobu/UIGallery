@@ -1,6 +1,6 @@
 <h3><%= @content.title %></h3>
 <%= render partial: 'common/social' %>
-<% @images.each do |f| %>
+<% @thumbnails.each do |f| %>
   <%= image_tag f.creative %>
   <p><%= f.caption %></p>
 <% end %>

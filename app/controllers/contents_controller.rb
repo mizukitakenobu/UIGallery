@@ -2,6 +2,7 @@ class ContentsController < ApplicationController
 
   def new
     @content = Content.new
+    @content.thumbnails.build
   end
 
   def create
@@ -10,12 +11,12 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find(params[:id])
-    @images = Image.where(content_id: params[:id])
+    @thumbnails = Thumbnail.where(content_id: params[:id])
   end
 
   def show
     @content = Content.find(params[:id])
-    @images = Image.where(content_id: params[:id])
+    @thumbnails = Thumbnail.where(content_id: params[:id])
   end
 
   def update
@@ -36,7 +37,7 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:title, :description, images_attributes: [:id, :creative, :caption, :image_cache])
+    params.require(:content).permit(:title, :description, thumbnails_attributes: [:id, :creative, :caption, :image_cache]).merge(user_id: current_user)
   end
 
 end
