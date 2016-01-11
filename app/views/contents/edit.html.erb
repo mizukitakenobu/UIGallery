@@ -1,18 +1,23 @@
 <%= form_tag("/contents/#{@content.id}", method: :patch ) do %>
   <h3>編集する</h3>
   <p name="title"><%= @content.title %></p>
-  <textarea cols="30" name="description" placeholder="text" rows="10"><%= @content.text %></textarea>
-  <%= form_for(@content.image) do |f| %>
-  <% if @content.image? %>
+  <textarea cols="30" name="description" placeholder="text" rows="10"><%= @content.description %></textarea>
+  <%= form_for(@images) do |f| %>
+  <% if f.creative? %>
       <div class="thumbnail">
-        <%= image_tag @content.image.url %>
+        <%= image_tag f.creative %>
       </div><br>
+  <% end %>
+  <% if f.caption? %>
+  <textarea cols="30" name="caption" row="10"><% f.caption %></textarea>
   <% end %>
     <%= f.label :image %><br>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
+    <%= f.label :caption, "画像の説明" %><br />
+    <%= f.text_area :caption %><br />
     <div class="field">
-      <% if @content.persisted? && @content.image? %>
+      <% if @image.persisted? && @image.creative? %>
         <label>
           <%= f.check_box :remove_image %>
           画像を削除
