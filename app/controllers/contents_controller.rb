@@ -10,10 +10,12 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find(params[:id])
+    @images = Image.where(content_id: params[:id])
   end
 
   def show
     @content = Content.find(params[:id])
+    @images = Image.where(content_id: params[:id])
   end
 
   def update
@@ -34,7 +36,7 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:title, :description, images_attributes: [:creative, :caption, :image_cache])
+    params.require(:content).permit(:title, :description, images_attributes: [:id, :creative, :caption, :image_cache])
   end
 
 end
