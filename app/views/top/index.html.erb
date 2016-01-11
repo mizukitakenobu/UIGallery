@@ -1,8 +1,10 @@
 <h2>投稿一覧</h2>
 <% @contents.each do |content| %>
   <li>
-    <a href="/contents/<%= content.id %>"><div style="background-image:url(<%= content.image.url %>)">a</div></a>
-    <h3 title="<%= content.title %>"><%= content.title %></h3>
+    <% @images.each do |f| %>
+    <div style="background-image:url(<%= f.creative %>)"></div>
+    <% end %>
+    <a href="/contents/<%= content.id %>"><h3 title="<%= content.title %>"><%= content.title %></h3></a>
     <p><%= content.description %></p>
   </li>
 <% end %>
