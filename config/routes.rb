@@ -4,5 +4,5 @@ Rails.application.routes.draw do
  root 'top#index'
  get '/' => 'top#index'
  resources :contents, :except =>[:index]
- resources :user, :except => [:index]
+ resources :users, only: [:show, :edit, :update]
 end
