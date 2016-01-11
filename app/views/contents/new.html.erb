@@ -5,8 +5,17 @@
   <br />
   <%= f.label :description, "説明" %><br />
   <%= f.text_area :description %><br />
-  <%= f.label :image , "画像" %><br />
-  <%= f.file_field :image %>
+  <div class="field">
+    <%= f.label :images, "画像" %><br />
+    <%= f.fields_for :images do |i_form| %>
+      <%= i_form.label :creative, "画像" %><br>
+      <%= i_form.file_field :creative %><br />
+      <%= i_form.hidden_field :creative_cache %>
+      <%= i_form.label :caption, "画像の説明" %><br />
+      <%= images_form.text_area :caption %><br />
+    <% end %>
+  </div>
+  <% end %>
   <%= f.hidden_field :image_cache %>
   <br />
 
