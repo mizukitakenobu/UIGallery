@@ -1,0 +1,8 @@
+<h3><%= @user.username %></h3>
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_path, method: :get %>
+<% end %>
+<% @user.contents.each do |f| %>
+  <li><%= f.title %></li>
+  <li><%= f.description %></li>
+<% end %>
