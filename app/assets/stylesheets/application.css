@@ -21,13 +21,14 @@ body {
 
 #logo{
   position:absolute;
+  margin:20px, 20px;
 }
 
 .slicknav_menu .slicknav_icon{
   display: none;
 }
 
-@media screen and (min-width : 736px) {
+@media screen and (min-width : 18000px) {
   #menu {
     display: block;
   }
