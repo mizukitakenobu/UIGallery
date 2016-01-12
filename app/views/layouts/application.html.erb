@@ -6,16 +6,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Freecanvas</title>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'screen', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <%= stylesheet_link_tag 'slicknav', media: 'screen', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.slicknav.min', 'data-turbolinks-track' => true %>
+  <script>
+    $(function(){
+        $('#menu').slicknav();
+    });
+  </script>
 </head>
 <body>
 <%= render partial: 'common/header' %>
 
 <%= yield %>
 
-<div class="footer">
-  <p>Copyright (C) <%= Time.now.strftime("%Y") %> FreeCanvas All Rights Reserved.</p>
-</div>
+<%= render partial: 'common/footer' %>
+
 </body>
 </html>
