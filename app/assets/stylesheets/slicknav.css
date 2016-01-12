@@ -90,13 +90,17 @@
     background-color: #fff; }
 
 .slicknav_btn {
-  margin: 5px 5px 6px;
+  margin: 15px 15px 18px;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  border-radius: 4px;
-  background-color: #222; }
+  width:30px;
+  height:30px;
+  padding:0;
+  border-radius:0;
+  background-color: #222;
+  background:url(http://placehold.jp/20/000/fff/30x30.png?text=≡) no-repeat center; }
 
 .slicknav_nav {
   color: #fff;
@@ -145,3 +149,11 @@
   line-height: 30px;
   padding: 7px 12px;
   height: 44px; }
+
+.slicknav_btn{
+      width:30px;
+      height:30px;
+      padding:0;
+      border-radius:0;
+      background:url(http://placehold.jp/20/000/fff/30x30.png?text=≡) no-repeat center;
+}
