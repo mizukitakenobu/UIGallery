@@ -12,8 +12,8 @@
   <%= stylesheet_link_tag 'slicknav', media: 'screen', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'jquery.slicknav.min', 'data-turbolinks-track' => true %>
   <script>
-    $(function(){
-        $('#menu').slicknav();
+    $('#menu').slicknav({
+      prependTo:'#sp_menu'
     });
   </script>
 </head>
