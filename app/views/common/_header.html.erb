@@ -1,26 +1,28 @@
-  <a href="/"><h1>UI Gallery</h1></a>
+<header class="header">
+  <div id="logo">
+    <h1><a href="/"><%= image_tag("logo.jpg", :alt => "UI Gallery") %></a></h1>
+  </div>
+  <div id="menu">
+    <ul>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "アカウントページへ", user_path(current_user), method: :get   %>
+        </li>
+        <li>
+          <%= link_to "投稿する", new_content_path, method: :get %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "会員登録", new_user_registration_path, method: :get %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path, method: :get %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<div>
-<% if user_signed_in? %>
-  <div>
-    <li>
-      <%= link_to "アカウントページへ", user_path(current_user), method: :get   %>
-    </li>
-    <li>
-      <%= link_to "投稿する", new_content_path, method: :get %>
-    </li>
-    <li>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    </li>
-  </div>
-  <% else %>
-  <div>
-  <li>
-    <%= link_to "会員登録", new_user_registration_path, method: :get %>
-  </li>
-  <li>
-    <%= link_to "ログイン", new_user_session_path, method: :get %>
-  </li>
-  </div>
-<% end %>
-</div>
+</header>
