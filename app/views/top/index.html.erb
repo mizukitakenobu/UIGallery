@@ -1,10 +1,11 @@
-<h2>投稿一覧</h2>
 <% @contents.each do |content| %>
-  <li>
-    <% @thumbnails.each do |f| %>
-    <div style="background-image:url(<%= f.creative %>)"></div>
-    <% end %>
-    <a href="/contents/<%= content.id %>"><h3 title="<%= content.title %>"><%= content.title %></h3></a>
-    <p><%= content.description %></p>
-  </li>
+  <div id="content-box">
+    <li>
+      <a href="/contents/<%= content.id %>"><%= image_tag content.main_creative %></a>
+      <h3 title="<%= content.title %>"><%= content.title %></h3>
+      <p>Posted at: <%= content.updated_at.strftime("%Y/%m/%d") %></p>
+    </li>
+  </div>
 <% end %>
+
+<%= paginate(@contents) %>

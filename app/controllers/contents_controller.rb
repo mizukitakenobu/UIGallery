@@ -37,7 +37,7 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:title, :description, thumbnails_attributes: [:id, :creative, :caption, :image_cache]).merge(user_id: current_user)
+    params.require(:content).permit(:title, :description, :main_creative, thumbnails_attributes: [:id, :creative, :caption, :image_cache]).merge(user_id: current_user)
   end
 
 end

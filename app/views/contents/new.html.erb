@@ -5,6 +5,9 @@
   <br />
   <%= f.label :description, "説明" %><br />
   <%= f.text_area :description %><br />
+  <%= f.label :main_creative, "メイン画像" %><br>
+  <small>メインとなる画像をアップロードしてください</small><br>
+  <%= f.file_field :main_creative %><br><br>
   <%= f.label :thumbnails, "画像" %><br />
   <%= f.fields_for :thumbnails do |thumbnail| %>
     <%= thumbnail.label :creative, "投稿する" %><br>
