@@ -12,6 +12,9 @@
         </a>
         <small><%= user_content.description[1..60] %>...</small>
         <p id="date"><%= user_content.updated_at.strftime("%Y/%m/%d") %></p>
+        <% if current_user.id == user_content.user_id %>
+          <%= link_to "編集する", "/contents/#{user_content.id}/edit" %>
+        <% end %>
       </div>
     <% end %>
   </div>

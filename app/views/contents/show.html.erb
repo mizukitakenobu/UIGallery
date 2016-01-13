@@ -19,9 +19,6 @@
     <div class="contents_description">
       <%=  @content.description %><br>
     </div>
-    <% if current_user.id == @content.user_id %>
-      <center><%= link_to "編集する", edit_content_path, method: :get ,:class => "btn" %></center>
-    <% end %>
     <div class="share_description">
       <p>お気に入りの画像ギャラリーをシェアしよう！</p>
     </div>
