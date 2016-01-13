@@ -1,29 +1,32 @@
-<h2>会員登録</h2>
+<div class="card-wrapper">
+<h2>新規会員登録</h2>
+<div class="nav_description">
+  <p>取っておきたいキャプチャーを<br>ギャラリーでみんなに共有しよう！</p>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :メールアドレス, :class => "form_label" %><br />
+    <%= f.email_field :email, autofocus: true, :class => "register_form" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label :パスワード（8文字以上）, :class => "form_label" %><br />
+    <%= f.password_field :password, autocomplete: "off", :class => "register_form" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード（確認） %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :パスワード（確認）, :class => "form_label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "register_form" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "会員登録" %>
+    <%= f.submit "会員登録", :class => "submit_btn" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>

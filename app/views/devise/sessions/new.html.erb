@@ -1,16 +1,24 @@
+<div class="card-wrapper">
 <h2>ログイン</h2>
 
+<% if alert %>
+  <p class='alert alert-danger'><%= alert %></p>
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class="nav_description">
+    新規会員登録は<%= link_to "こちらから", new_registration_path(resource_name) %>！<br />
+  </div>
+<% end -%>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <% if alert %>
-    <p class='alert alert-danger'><%= alert %></p>
-  <% end %>
 
   <div>
-    <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'input form-control' %>
+    <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレス', :class => "register_form" %>
   </div>
 
   <div>
-    <%= f.password_field :password, autocomplete: 'off', placeholder: 'パスワード', class: 'input form-control' %>
+    <%= f.password_field :password, autocomplete: 'off', placeholder: 'パスワード', :class => "register_form" %>
   </div>
 
   <br />
@@ -30,3 +38,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
