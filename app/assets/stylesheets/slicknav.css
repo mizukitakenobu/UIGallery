@@ -83,7 +83,7 @@
   .slicknav_menu * {
     box-sizing: border-box; }
   .slicknav_menu .slicknav_menutxt {
-    color: #fff;
+    color: #FF6969;
     font-weight: bold;
     text-shadow: 0 1px 3px #000; }
   .slicknav_menu .slicknav_icon-bar {
@@ -103,7 +103,7 @@
   background:url(http://placehold.jp/20/000/fff/30x30.png?text=≡) no-repeat center; }
 
 .slicknav_nav {
-  color: #fff;
+  color: #FF6969;
   margin: 0;
   padding: 0;
   font-size: 0.875em;
@@ -127,13 +127,14 @@
     padding: 5px 10px;
     margin: 2px 5px;
     text-decoration: none;
-    color: #fff; }
+    color: #000000; }
     .slicknav_nav a:hover {
       -webkit-border-radius: 6px;
       -moz-border-radius: 6px;
       border-radius: 6px;
-      background: #ccc;
-      color: #222; }
+      background: #ffbebe;
+      color: #222;
+      font-weight: 700; }
   .slicknav_nav .slicknav_txtnode {
     margin-left: 15px; }
   .slicknav_nav .slicknav_item a {
