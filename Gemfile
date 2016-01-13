@@ -52,3 +52,5 @@ gem 'rmagick'
 gem 'kaminari'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+# For Carrierwave
+gem 'fog'
