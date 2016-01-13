@@ -1,29 +1,35 @@
-<%= form_tag("/contents/#{@content.id}", method: :patch ) do %>
+<%= form_for @content, :url => {:action => 'update'}, :html => {:multiple => true} do |f| %>
   <h3>編集する</h3>
-  <p name="title"><%= @content.title %></p>
-  <textarea cols="30" name="description" placeholder="text" rows="10"><%= @content.description %></textarea>
-  <%= form_for(@images) do |f| %>
-  <% if f.creative? %>
-      <div class="thumbnail">
-        <%= image_tag f.creative %>
-      </div><br>
-  <% end %>
-  <% if f.caption? %>
-  <textarea cols="30" name="caption" row="10"><% f.caption %></textarea>
-  <% end %>
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-    <%= f.label :caption, "画像の説明" %><br />
-    <%= f.text_area :caption %><br />
-    <div class="field">
-      <% if @image.persisted? && @image.creative? %>
-        <label>
-          <%= f.check_box :remove_image %>
-          画像を削除
-        </label>
-      <% end %>
-    </div>
-  <% end %>
-  <input type="submit" value="SENT">
+  <%= f.label :title, "タイトル(40文字まで)", :class => "form_label" %><br />
+  <%= f.text_area :title, :placeholder => "#{@content.title}", :maxlength => "40", :class => "title_form" %>
+  <br />
+  <%= f.label :description, "説明", :class => "form_label" %><br />
+  <%= f.text_area :description, :placeholder => "#{@content.description}", :class => "description_form" %><br />
+  <%= f.label :main_creative, "メイン画像", :class => "form_label" %><br>
+  <small>メインとなる画像を1枚アップロードしてください</small><br>
+  <%= f.file_field :main_creative %><br><br>
+  <%= f.label :thumbnails, "画像", :class => "form_label2" %><br />
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <%= f.fields_for :thumbnails do |thumbnail| %>
+          <div class="swiper-slide">
+            <% if f.creative? %>
+              <%= image_tag f.creative %><br>
+              <label>
+                <%= f.check_box :remove_image %>
+                画像を削除<br>
+              </label>
+            <% end %>
+            <% if f.caption? %>
+              <%= thumbnail.label :caption, "画像の説明", :class => "form_label" %><br />
+              <%= thumbnail.text_area :caption, :placeholder => "#{@thumbnails.caption}", :class => "caption_form" %><br />
+            <% end %>
+          </div>
+          <%= thumbnail.label :creative, "投稿する", :class => "form_label" %><br>
+          <%= thumbnail.file_field :creative %><br />
+          <%= thumbnail.label :caption, "画像の説明", :class => "form_label" %><br />
+          <%= thumbnail.text_area :caption, :class => "caption_form" %><br />
+    <% end %>
+  <br />
+  <%= f.submit "投稿する", :class => "submit_btn" %>
 <% end %>

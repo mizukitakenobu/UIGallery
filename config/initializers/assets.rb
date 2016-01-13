@@ -11,3 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( slicknav.css )
 Rails.application.config.assets.precompile += %w( jquery.slicknav.min.js )
+Rails.application.config.assets.precompile += %w( swiper.min.css )
+Rails.application.config.assets.precompile += %w( swiper.jquery.min.js )

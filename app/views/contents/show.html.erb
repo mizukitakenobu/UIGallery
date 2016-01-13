@@ -1,9 +1,37 @@
-<h3><%= @content.title %></h3>
-<%= render partial: 'common/social' %>
-<% @thumbnails.each do |f| %>
-  <%= image_tag f.creative %>
-  <p><%= f.caption %></p>
-<% end %>
-<div class="contents_description">
-  <%=  @content.description %>
+<div class="content-wrapper">
+  <h2><%= @content.title %></h2>
+  <div id="date">
+    <%= @content.updated_at.strftime("%Y/%m/%d") %>
+  </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @thumbnails.each do |f| %>
+        <div class="swiper-slide">
+          <%= image_tag f.creative %><br>
+          <p><%= f.caption %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  <div class="contents_description">
+    <%=  @content.description %><br>
+  </div>
+  <% if current_user.id == @content.user_id %>
+    <center><%= link_to "編集する", edit_content_path, method: :get ,:class => "btn" %></center>
+  <% end %>
+  <div class="share_description">
+    <p>お気に入りのUIをシェアしよう！</p>
+  </div>
+  <center><%= render partial: 'common/social' %></center>
 </div>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        paginationClickable: true,
+        spaceBetween: 50,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+    });
+</script>
