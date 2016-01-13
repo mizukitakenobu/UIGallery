@@ -6,7 +6,6 @@ CarrierWave.configure do |config|
     :region                 => 'ap-northeast-1'
   }
 
-  config.fog_directory = 'uigallery' if Rails.env.production?
-  config.fog_directory = 'uigallery' if Rails.env.development?
+  config.fog_directory = 'uigallery'
 
 end
