@@ -1,8 +1,18 @@
-<h3><%= @user.username %></h3>
+<h2><%= @user.username %></h2>
 <% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_path, method: :get %>
+  <center><%= link_to "ユーザー情報を編集する", edit_user_path, method: :get ,:class => "btn" %></center>
 <% end %>
-<% @user.contents.each do |f| %>
-  <li><%= f.title %></li>
-  <li><%= f.description %></li>
-<% end %>
+<div id="wrapper">
+  <div id="columns">
+    <% @user.contents.each do |user_content| %>
+      <div class="content">
+        <a href="/contents/<%= user_content.id %>">
+          <%= image_tag user_content.main_creative %>
+          <h3 title="<%= user_content.title %>"><%= user_content.title %></h3>
+        </a>
+        <small><%= user_content.description[1..60] %>...</small>
+        <p id="date"><%= user_content.updated_at.strftime("%Y/%m/%d") %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

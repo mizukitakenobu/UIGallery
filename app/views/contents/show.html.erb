@@ -1,30 +1,32 @@
 <div class="content-wrapper">
-  <h2><%= @content.title %></h2>
-  <div id="date">
-    <%= @content.updated_at.strftime("%Y/%m/%d") %>
-  </div>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <% @thumbnails.each do |f| %>
-        <div class="swiper-slide">
-          <%= image_tag f.creative %><br>
-          <p><%= f.caption %></p>
-        </div>
-      <% end %>
+  <div class="content-inner">
+    <h2><%= @content.title %></h2>
+      <div id="date">
+        <%= @content.updated_at.strftime("%Y/%m/%d") %>
+      </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% @thumbnails.each do |f| %>
+          <div class="swiper-slide">
+            <%= image_tag f.creative %><br>
+            <p><%= f.caption %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="contents_description">
+      <%=  @content.description %><br>
+    </div>
+    <% if current_user.id == @content.user_id %>
+      <center><%= link_to "編集する", edit_content_path, method: :get ,:class => "btn" %></center>
+    <% end %>
+    <div class="share_description">
+      <p>お気に入りの画像ギャラリーをシェアしよう！</p>
+    </div>
+    <center><%= render partial: 'common/social' %></center>
   </div>
-  <div class="contents_description">
-    <%=  @content.description %><br>
-  </div>
-  <% if current_user.id == @content.user_id %>
-    <center><%= link_to "編集する", edit_content_path, method: :get ,:class => "btn" %></center>
-  <% end %>
-  <div class="share_description">
-    <p>お気に入りのUIをシェアしよう！</p>
-  </div>
-  <center><%= render partial: 'common/social' %></center>
 </div>
 
 <script>

@@ -1,11 +1,16 @@
-<% @contents.each do |content| %>
-  <div id="content-box">
-    <li>
-      <a href="/contents/<%= content.id %>"><%= image_tag content.main_creative %></a>
-      <h3 title="<%= content.title %>"><%= content.title %></h3>
-      <p>Posted at: <%= content.updated_at.strftime("%Y/%m/%d") %></p>
-    </li>
+<div id="wrapper">
+  <div id="columns">
+    <% @contents.each do |content| %>
+      <div class="content">
+        <a href="/contents/<%= content.id %>">
+          <%= image_tag content.main_creative %>
+          <h2 title="<%= content.title %>"><%= content.title %></h2>
+        </a>
+        <p id="small"><%= content.description[1..60] %>...</p>
+        <p id="date"><%= content.updated_at.strftime("%Y/%m/%d") %></p>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
-<%= paginate(@contents) %>
+<center><%= paginate(@contents) %></center>
