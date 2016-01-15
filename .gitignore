@@ -15,6 +15,5 @@
 
 # Ignore below configfiles
 carrierwave.rb
-environment.rb
 development.rb
 secrets.yml
