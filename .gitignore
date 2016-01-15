@@ -13,5 +13,8 @@
 /tmp
 
 
-# Ignore all configfiles
-/config
+# Ignore below configfiles
+carrierwave.rb
+environment.rb
+development.rb
+secrets.yml
