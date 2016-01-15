@@ -1,5 +1,10 @@
-<%= form_for @user do |f| %>
-  <%= f.text_field :username %>
-  <%= f.text_field :email %>
-  <%= f.submit "送信" %>
-<% end %>
+<div class="card-wrapper">
+  <h3>ユーザー情報の変更</h3>
+  <%= form_for @user do |f| %>
+  <%= f.text_field :username, :class => "register_form" %>
+  <%= f.text_field :email, :class => "register_form" %>
+  <div class="button_wrapper">
+    <%= f.submit "送信", :class => "submit_btn" %>
+  </div>
+  <% end %>
+</div>

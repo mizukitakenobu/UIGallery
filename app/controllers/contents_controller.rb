@@ -2,7 +2,7 @@ class ContentsController < ApplicationController
 
   def new
     @content = Content.new
-    @content.thumbnails.build
+    3.times { @content.thumbnails.build }
   end
 
   def create
@@ -37,7 +37,7 @@ class ContentsController < ApplicationController
 
   private
   def content_params
-    params.require(:content).permit(:title, :description, :main_creative, thumbnails_attributes: [:id, :creative, :caption, :image_cache]).merge(user_id: current_user)
+    params.require(:content).permit(:title, :description, :main_creative, :remove_main_creative, thumbnails_attributes: [:id, :creative, :caption, :image_cache]).merge(user_id: current_user.id)
   end
 
 end
