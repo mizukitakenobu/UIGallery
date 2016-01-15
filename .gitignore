@@ -14,5 +14,6 @@
 
 
 # Ignore below configfiles
-carrierwave.rb
-development.rb
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
